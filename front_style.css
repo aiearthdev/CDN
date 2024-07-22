@@ -1,0 +1,526 @@
+body {
+  font-family: 'Arial', sans-serif; /* 现代字体 */
+}
+
+h2, h3 {
+  text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.7); /* 文字阴影 */
+  animation: fadeIn 2s; /* 渐显动画 */
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+p {
+  line-height: 1.6; /* 行间距 */
+}
+
+ul, li {
+  list-style-type: none; /* 移除列表符号 */
+  padding: 0;
+}
+
+li {
+  margin-bottom: 5px; /* 列表项间距 */
+}
+
+a {
+  color: #4CAF50; /* 链接颜色 */
+  text-decoration: none; /* 移除下划线 */
+  transition: color 0.3s ease; /* 平滑颜色过渡 */
+}
+
+a:hover {
+  color: #81C784; /* 悬停颜色变化 */
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5); /* 容器阴影 */
+  border-radius: 10px; /* 边框圆角 */
+}
+  :root {
+    --background-color: #eaeaea; /* 明亮模式背景 */
+    --text-color: #333; /* 明亮模式文字颜色 */
+    --header-background: #0062cc; /* 明亮模式页眉背景 */
+    --footer-background: #333; /* 明亮模式页脚背景 */
+    --section-background: #fff; /* 明亮模式内容区域背景 */
+    --code-sample-background: #f9f9f9; /* 明亮模式代码示例背景 */
+    --link-color: #007bff; /* 链接颜色 */
+    --feature-background: #fff; /* 特性背景颜色 */
+  }
+
+<pre><code>.header-container {
+  display: flex; /* 使用 Flexbox */
+  justify-content: center; /* 水平居中 */
+  align-items: center; /* 垂直居中 */
+  height: 20px; /* 设置高度，足以展示 h1 */
+  perspective: 600px; /* 添加 3D 效果 */
+}
+
+.header-container h1 {
+  font-size: 2.5em;
+  background: linear-gradient(45deg, #f06, #aef, #06f, #fae); /* 标准属性 */
+  -webkit-background-clip: text; /* Safari 浏览器专用 */
+  background-clip: text; /* 标准属性 */
+  color: transparent; /* 需要与 background-clip 一起使用 */
+  text-align: center;
+}
+
+@keyframes swing-in-top-fwd {
+  0% {
+  transform: rotateX(-100deg);
+  transform-origin: top;
+  opacity: 0;
+  }
+  100% {
+  transform: rotateX(0deg);
+  transform-origin: top;
+  opacity: 1;
+  }
+}
+
+/* 微互动：鼠标悬停时的效果 */
+.header-container h1:hover {
+  animation-name: pulse; /* 修改动画名称，保留其他动画参数 */
+}
+
+@keyframes pulse {
+  0% {
+  transform: scale(1);
+  }
+  50% {
+  transform: scale(1.05);
+  }
+  100% {
+  transform: scale(1);
+  }
+}
+
+
+ /* 微互动：鼠标悬停时的效果 */
+.header-container h1:hover {
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+
+.features-container {
+  display: flex;
+  justify-content: space-around; /* Changed from center to space-around */
+  flex-wrap: wrap;
+  padding-top: 50px;
+  list-style: none;
+  margin: 0 auto; /* Added auto to horizontally center the container */
+  max-width: 1400px; /* Set a max-width for the container */
+}
+
+.feature {
+  text-align: center;
+  background-color: var(--code-sample-background-dark, var(--code-sample-background-light));
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  width: calc(25% - 20px); /* 每个feature盒子尝试占据25%宽度减去间距 */
+  margin: 10px; /* 盒子之间的空间 */
+  padding: 20px;
+}
+
+
+.feature img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+}
+
+@media (max-width: 600px) {
+  .features-container {
+  flex-direction: column;
+  align-items: center;
+  }
+  .feature {
+  width: 100%;
+  max-width: 340px; /* Maximum width of features on small screens */
+  }
+}
+
+.section {
+  background-color: var(--code-sample-background-dark, var(--code-sample-background-light));
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  max-width: 1200px;
+}
+
+.highlight {
+  color: red;
+  font-weight: bold;
+}
+
+.highlight.green {
+  color: green;
+}
+
+.code-sample {
+  background-color: var(--code-sample-background-dark, var(--code-sample-background-light));
+  border-left: 3px solid #f36d33;
+  padding: 10px;
+  font-family: monospace;
+  overflow-x: auto;
+  white-space: pre-wrap;
+}
+
+.footer {
+  text-align: center;
+  padding: 10px 0;
+  background: #333;
+  color: white;
+}
+
+a {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* 针对首页显示效果 */
+.feature:hover, .section:not(.modal-section):hover {
+  transform: scale(1.1); /* 放大效果 */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4); /* 增加阴影深度 */
+  animation: pulse 1s infinite; /* 继续使用 pulse 动画 */
+}
+
+/* 针对模态框内部的 section */
+.modal-section:hover {
+  /* 不使用动画，但保持放大和阴影效果 */
+  transform: scale(1.01);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+
+/* 阴影和深度效果 */
+.section {
+  background-color: var(--code-sample-background-dark, var(--code-sample-background-light));
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* 微妙动画 */
+@keyframes float {
+  50% {
+  transform: translateY(-10px);
+  }
+}
+/* 定义 pulse 动画 */
+@keyframes pulse {
+  0% {
+  transform: scale(1);
+  }
+  50% {
+  transform: scale(1.05);
+  }
+  100% {
+  transform: scale(1);
+  }
+}
+
+.feature img {
+  animation: float 3s ease-in-out infinite alternate;
+}
+
+/* 移除 h1, h2 的全局大写样式 */
+h1, h2 {
+  /* text-transform: uppercase; */ /* 删除或注释此行 */
+  letter-spacing: 1.5px;
+  font-weight: bold;
+}
+
+/* 为需要大写的标题单独设置样式 */
+.uppercase {
+  text-transform: uppercase; /* 只有含有 .uppercase 类的元素会被转换为大写 */
+}
+
+p {
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+
+/* 弹窗背景 */
+.modal-background {
+  display: none; /* 默认不显示 */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+/* 弹窗内容的样式 */
+.modal-content {
+  background: var(--background-color);
+  width: 300px;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 15% auto; /* 居中显示 */
+  position: relative;
+}
+
+/* 特定于参数模态框的样式 */
+.modal-params-content {
+  background: var(--background-color);
+  width: 1200px; /* 宽度设为1000px */
+  max-height: 80%; /* 最大高度设置为视窗的80%，具体值可根据需要调整 */
+  overflow-y: auto; /* 超出部分显示滚动条 */
+  padding: 20px;
+  border-radius: 10px;
+  margin: 5% auto; /* 居中显示，并稍微调整了上下的空间 */
+  position: relative;
+  box-sizing: border-box; /* 确保边距包括在宽度内 */
+}
+
+@media (max-width: 1400px) {
+  .modal-params-content {
+  width: 90%; /* 小屏幕时占据更多百分比的宽度 */
+  max-width: 1100px; /* 但不超过1000px */
+  }
+}
+
+
+
+/* 3D层次感文字效果 */
+.header-container h1 {
+   color: white; /* 设置文本颜色为白色 */
+   text-shadow: 
+   2px 2px 4px rgba(0, 0, 0, 0.5), /* 水平偏移量、垂直偏移量、模糊距离和颜色 */
+   -2px -2px 4px rgba(0, 0, 0, 0.5); /* 向相反方向也添加阴影以获得更均衡的效果 */
+}
+
+/* 动态光影效果 */
+.feature:hover::after {
+  content: &#39;&#39;;
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  background: linear-gradient(
+  45deg,
+  rgba(255, 255, 255, 0.3),
+  rgba(255, 255, 255, 0.1)
+  );
+  z-index: -1;
+  border-radius: 15px;
+}
+
+/* 加入3D效果的卡片阴影 */
+.feature, .section {
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+  transform: perspective(500px) translateZ(0);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* 在header和footer中使用更清晰的发光的文本 */
+.header-container h1, .footer {
+  text-shadow:
+  0 0 5px rgba(0, 123, 255, 0.8),
+  0 0 10px rgba(0, 123, 255, 0.6),
+  0 0 15px rgba(0, 123, 255, 0.4),
+  0 0 20px rgba(0, 123, 255, 0.3);
+}
+
+
+/* 模态窗口动画 */
+.modal-background {
+  animation: fadeIn 0.3s;
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.modal-content {
+  animation: zoomIn 0.3s;
+}
+@keyframes zoomIn {
+  from { transform: scale(0.5); }
+  to { transform: scale(1); }
+}
+
+/* 页面加载动画 */
+.loader-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--background-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+/* 平滑过渡效果 */
+.feature {
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* 添加过渡效果 */
+}
+
+/* 鼠标悬停时的放大效果 */
+.feature:hover {
+  transform: scale(1.1); /* 放大到原来的1.05倍 */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4); /* 增加阴影深度 */
+}
+
+
+/* 重置链接样式并应用按钮基础样式 */
+.button, a.button { 
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 5px;
+  background-image: linear-gradient(to right, #f6d365 0%, #fda085 100%);
+  color: white;
+  text-align: center;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 16px;
+  text-decoration: none; /* 移除a标签的下划线 */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  font-family: inherit; /* 使字体与页面其余部分一致 */
+  line-height: normal; /* 这可以重置&lt;a&gt;标签的行高 */
+  vertical-align: middle; /* 避免由于行内块默认对齐引发的布局问题 */
+}
+
+/* 适用于所有按钮状态的样式 */
+.button:hover, a.button:hover {
+  background-image: linear-gradient(to right, #fda085 0%, #f6d365 100%);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+}
+
+.button:active, a.button:active {
+  transform: translateY(1px);
+}
+
+/* 输入框基础样式 */
+.url-copy-input {
+  border: none;
+  background-color: transparent; /* 背景透明 */
+  color: #0056b3; /* 深蓝色字体 */
+  cursor: pointer; /* 显示文本光标 */
+  padding: 3px;
+  border-bottom: 1px dashed #0056b3; /* 添加下划线 */
+  text-align: left; /* 文本左对齐 */
+}
+
+/* 针对聚焦状态的样式 */
+.url-copy-input:focus {
+  outline: none; /* 移除聚焦时的边框 */
+}
+
+/* 快速上手指南的列表基础样式 */
+.guide-list {
+  list-style: none;
+  padding: 0;
+}
+
+/* 指南列表项样式 */
+.guide-item {
+  position: relative;
+  padding-left: 30px; /* 为图标留出空间 */
+  margin-bottom: 10px; /* 列表项之间的间隔 */
+  line-height: 1.5; /* 行高 */
+}
+
+
+/* 指南链接样式 */
+.guide-link {
+  color: #007bff; /* 链接颜色 */
+  text-decoration: none; /* 移除下划线 */
+  font-weight: bold; /* 字体加粗 */
+}
+
+.guide-link:hover {
+  text-decoration: underline; /* 悬停时下划线 */
+} 
+  .rainbow-text {
+  line-height: 1.2;
+  display: inline-block;
+  animation: rainbow 15s linear infinite;
+  font-size: 3vw; /* 使用视口宽度单位 */
+  }
+  .module {
+  margin-top: 10vh; /* 使用视口高度单位 */
+  }
+  .api-link {
+  font-size: 0.8vw; /* 使用视口宽度单位 */
+  }
+  .overlay {
+  height: 100vh;
+  }
+  .nameplate {
+  font-size: 4vw; /* 使用视口宽度单位 */
+  }
+  @media screen and (max-width: 600px) {
+  .rainbow-text {
+    font-size: 10vw; /* 在小屏幕上使用更大的字体大小 */
+  }
+  .module {
+    margin-top: 20vh; /* 在小屏幕上使用更大的上边距 */
+  }
+  .api-link {
+    font-size: 2vw; /* 在小屏幕上使用更大的字体大小 */
+  }
+  }
+  @keyframes rainbow {
+  0% {color: #ff0000;}
+  10% {color: #ff7f00;}
+  20% {color: #ffff00;}
+  30% {color: #00ff00;}
+  40% {color: #0000ff;}
+  50% {color: #4b0082;}
+  60% {color: #9400d3;}
+  70% {color: #ee82ee;}
+  80% {color: #ff0000;}
+  100% {color: #ff0000;}
+  }
+  a:link { 
+  color:#0089ff; 
+  text-decoration:none; 
+  } 
+  a:visited { 
+  color:#0089ff; 
+  text-decoration:none; 
+  } 
+  a:hover { 
+  color:#00FF00; 
+  text-decoration:none; 
+  } 
+  a:active { 
+  color:#FFFFFF; 
+  text-decoration:none; 
+  } 
+  li{
+  margin: 5px 0;
+  }
