@@ -39,8 +39,8 @@ a:hover {
   max-width: 1000px;
   margin: 0 auto;
   padding: 20px;
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5); /* 容器阴影 */
-  border-radius: 10px; /* 边框圆角 */
+  /* box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);  容器阴影 */
+  /* border-radius: 10px;  边框圆角 */
 }
   :root {
     --background-color: #eaeaea; /* 明亮模式背景 */
